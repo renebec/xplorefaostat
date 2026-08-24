@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #2c3e50;
+            background-color: #f4f6f8;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .header p {
+            margin: 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        .section-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #e1e8ed;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        h2 {
+            font-size: 18px;
+            color: #1e3c72;
+            margin-top: 0;
+            margin-bottom: 12px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #4f5d73;
+            text-align:justify;
+        }
+        /* Ventanas de código estilo IDE oscuro */
+        .code-window {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            font-size: 13.5px;
+            margin: 16px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .code-header {
+            background: #2d2d2d;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #3c3c3c;
+        }
+        .code-title {
+            color: #9cdcfe;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .dots {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff5f56;
+            box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+            margin-right: 50px;
+        }
+        .code-content {
+            padding: 18px 20px;
+            margin: 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.5;
+        }
+        /* Colores de sintaxis simulada */
+        .keyword { color: #569cd6; }
+        .function { color: #Ec55Ca; }
+        .string { color: #ce9178; }
+        .comment { color: #6a9955; font-style: italic; }
+        .number { color: #b5cea8; }
+        
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 40px;
+            border-top: 1px solid #e1e8ed;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Cheat Sheet R: exploring dataBases</h1>
+        <text style-="color:white;">Explorando FAOSTAT: parte 1</text>
+    </div>
+
+    <div class="section-card">
+        <p>
+            Este material no pretende lograr
+            un desglose completo y mucho menos un análisis de la información de FAOSTAT, sino más
+            busca brindar algunas herramientas operativas para fortalecer las capacidades de búsqueda y exploración
+            usando el lenguaje R y bases de datos disponibles online.
+        
+            Las líneas de código que que aquí se comparten son de utilidad para explorar bases de datos en general.
+            Siéntanse libres de probar y manipular el código para construir sus propias instrucciones de exploración
+            así como sus propias gráficas. 
+        </p>
+        
+        <p>
+            Quedo a sus órdenes para cualquier duda o sugerencia con respecto a este material o
+            para otros fines relacionados con este trabajo conjunto.
+        </p>
+        
+        <div style="text-align:right;">
+            
+            <text><i>Héctor R. Becerril C.</i></text>
+        
+        </div>
+
+        
+        <div class="section-card contact-card">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna duda, sugerencia o comentario?</p>
+        
+        <div class="contact-action">
+            <a href="mailto:renebec@gmail.com?subject=Contacto&body=Escribe%20tu%20duda%20o%20comentario%3A%0D%0A" class="contact-btn">
+                <!-- Icono SVG de sobre -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Enviar correo electrónico
+            </a>
+        </div>
+    </div>
+        
+        
+    
+    </div>
+
+    <!-- Tip en R -->
+    <div class="section-card">
+        <h2>1: Cargar los paquetes necesarios</h2>
+            <p>Evita errores al ejecutar scripts compartidos asegurando que los paquetes necesarios se verifiquen, se instalen 
+            si es que faltan y, que se activen automáticamente usando un vector: <i>c(x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>)</i>.
+        </p>
+        
+        
+        <div class="code-window">
+            <div class="code-header">
+                <span class="dots"></span>
+                <span class="code-title">script_librerias.R</span>
+            </div>
+            <pre class="code-content">
+                <span class="comment"># Definir paquetes necesarios</span>
+                paquetes <span class="keyword">&lt;-</span> <span class="function">c</span>(<span class="string">"FAOSTAT"</span>, <span class="string">"tidyverse"</span>, <span class="string">"plotly"</span>, <span class="string">"ggplotly"</span>, <span class="string">"htmlwidgets"</span>)
+
+                <span class="comment"># Bucle para verificar, instalar y cargar</span>
+                <span class="keyword">for</span> (paquete <span class="keyword">in</span> paquetes) {
+                    <span class="keyword">if</span> (!<span class="function">require</span>(paquete, character.only = <span class="keyword">TRUE</span>)) {
+                        <span class="function">install.packages</span>(paquete, dependencies = <span class="keyword">TRUE</span>)
+                    }
+                <span class="function">library</span>(paquete, character.only = <span class="keyword">TRUE</span>)
+                }</pre>
+        </div>
+    </div>
+    
+    <!-- #---------------------------------------------------------------------------- -->
+    <hr>
+    <div class="section-card">
+       
+        
+        <h2>2: Descripción básica del paquete FAOSTAT</h2>
+        <p>
+            Mostrar la versión, fecha de instalación, y otros elementos descriptivos del paquete incluyendo la
+            información para citas y referencias.
+        </p>
+        
+        <div class="code-window">
+            <div class="code-header">
+                <span class="dots"></span>
+                <span class="code-title">describe_FAOSTAT.R</span>
+            </div>
+            <pre class="code-content">
+                <span class="comment">#Descripción general</span>
+                <span class="function">packageDescription</span>(FAOSTAT)
+                
+                <span class="comment">#Fecha de instalación del paquete</span>
+               "FAOSTAT" <span class="function">%>%</span> path.package() <span class="function">%>%</span> file.info()  <span class="function">%>%</span> .$mtime
+               
+               <span class="comment"># Comprobar cuál es la versión más reciente disponible en CRAN</span>
+               <span class="function">package_version(available.packages()</span>[["FAOSTAT", "Version"]]<span class="function">)</span>
+               
+               <span class="comment">#información para cita y referencia</span>
+               <span class="function">citation(</span>"FAOSTAT"<span class="function">)</span>
+               
+               <span class="comment"># descripción propia del paquete y ligas de información sobre el mismo</span>
+               <span class="function">?</span>FAOSTAT
+
+            </pre>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="section-card">
+       
+        
+        <h2>3: Abrir cuenta en la página de FAOSTAT</h2>
+        <p>
+            Crear una cuenta en: 
+        </p>
+           <a href="https://www.fao.org/faostat/en/#developer-portal" target="_blank">https://www.fao.org/faostat/en/#developer-portal</a> 
+        
+        <div class="code-window">
+            <div class="code-header">
+                <span class="dots"></span>
+                <span class="code-title">login_FAOSTAT.R</span>
+            </div>
+            <pre class="code-content">
+                <span class="comment"># ...una vez hecho el registro continuar en R...</span>
+                <span class="function">faostat_login</span>()
+                
+                <span class="comment">#Nota: en el entorno de R, una vez que corriste la línea anterior de código, </span>
+                <span class="comment">#...deberás ingresar el correo que diste de alta directamente en la ventana de consola</span>
+                <span class="comment">#...y posteriormente aparecerá la ventana para ingresar tu password</span>
+               
+               
+               <span class="comment"># Guardamos todos los datasets contenidos en FAOSTAT en un objeto que llamaremos "lista_datasets"</span>
+               lista_datasets &lt;- <span class="function">search_dataset()</span>
+               
+               <span class="comment">#Mostramos la estructura y tamaño de nuestro objeto lista_datasets</span>
+               <span class="function">str(</span>"lista_datasets"<span class="function">)</span>
+               <span class="comment">#Identificaremos alrededor de 78 registros y 10 categorías observadas</span>
+               
+               <span class="comment"># Mostraremos los nombres de las categorías contenidas en "lista_datasets"</span>
+               <span class="function">names(</span>lista_datasets<span class="function">)</span>
+
+            </pre>
+        </div>
+    </div>
+   
+   <hr>
+    
+    <div class="section-card">
+       
+        
+        <h2>4: Glosario de códigos FAOSTAT</h2>
+        <p>
+           Mostrar códigos de contenido y sus etiquetas.
+        </p>
+          
+        <div class="code-window">
+            <div class="code-header">
+                <span class="dots"></span>
+                <span class="code-title">codes_FAOSTAT.R</span>
+            </div>
+            <pre class="code-content">
+
+                lista_datasets[, c("code", "label")]
+                
+            </pre>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="section-card">
+       
+        
+        <h2>5: Explorar parte 1: explorar variables</h2>
+        <p>
+          Explorar el contenido de FAOSTAT a partir de un código temático de interés visto en el glosario.
+        </p>
+          
+        <div class="code-window">
+            <div class="code-header">
+                <span class="dots"></span>
+                <span class="code-title">xplore1_FAOSTAT.R</span>
+            </div>
+            <pre class="code-content">
+                <span class="comment"># extraer la información temática del código RFN: "Fertilizantes por Nutriente" </span>
+                <span class="comment"># ...la información extraída la guardaremos en un objeto que llamaremos rfn_data" </span>
+                rfn_data <- <span class="function">get_faostat_bulk(</span>"RFN"<span class="function">)</span>
+                
+                <span class="comment"># mostraremos la estructura y tamaño del nuevo objeto rfn_data </span>
+                <span class="function">str(</span>rfn_data<span class="function">)</span>
+                <span class="comment"># podemos ver que contiene 256,304 registros sobre 13 variables (256,304 filas x 13 columnas) </span>
+                <span class="comment">#...y vemos que algunas variables alacenan datos de tipo alfanumérico (chr), otras números enteros (int) y </span>
+                <span class="comment">#... algunas almacenan datos decimales (num) </span>
+                
+                <span class="comment">#Mostraremos los valores observados para todas las variables en los primeros 3 registros </span>
+                rfn_data[0:3, ]
+                
+                <span class="comment">#Mostraremos los valores observados para la variable "year" en los primeros 3 registros </span>
+                rfn_data$year[0:3]
+                
+                <span class="comment">#Mostraremos los valores únicos que registra la variable "area" </span>
+                unique(rfn_data$area)
+        </div>
+    </div>
+    
+    <div class="section-card">
+       
+        
+        <h2>5: Explorar parte 2: extraer y agrupar</h2>
+        <p>
+          Explorar contenido a partir de extraer ciertos datos y de agruparlos con respecto a un conjunto de 
+          categorías de interés.
+        </p>
+          
+        <div class="code-window">
+            <div class="code-header">
+                <span class="dots"></span>
+                <span class="code-title">xplore2_FAOSTAT.R</span>
+            </div>
+            <pre class="code-content">
+                
+                <span class="comment"># Exploraremos la categoría RFN que tenemos en rfn_data pero, para un bloque de países, </span>
+                <span class="comment"># ...la informaación extraída la guardaremos en el objeto "BLOQUE" </span>
+                BLOQUE <- rfn_data |> <span class="function">filter(</span>area <span class="function">%in%</span> c("Argentina","Brazil","Colombia", "Mexico")<span class="function">)</span>
+                
+                <span class="comment"># .....</span>
+                str(BLOQUE)
+                
+                <span class="comment"># Elegiremos 3 registros de BLOQUE para mostrar los valores observados en todas sus variables</span>
+                BLOQUE[c(1,1750,3139), ]
+                
+                <span class="comment"># Mostraremos los valores únicos que contiene la variable "item"</span>
+                unique(BLOQUE$item)
+                
+                <span class="comment"># Mostraremos los valores únicos que contiene la variable "element"</span>
+                unique(BLOQUE$element)
+                
+                <span class="comment">
+                # los campos "yeaar_code" y "year" puede contener años individuales, pero en algunos casos
+                # se encontrará información por periodo, digamos 2001-2004.
+                # Filtraremos solo aquella información donde, ya sea el campo "year_code" o el campo "year" contenga
+                # cuatro caracteres, lo que asegura que es información de un año específico y 
+                # no de un período. Los datos filtrados los guardaremos en un objeto llamado BLOQUE1
+                </span>
+                BLOQUE1 <- BLOQUE <span class="function">%>%</span> filter(<span class="function">grepl(</span>"^\\d{4}$", year_code<span class="function">)</span>)
+                
+                <span class="comment"># Ahora actualizaremos la info de BLOQUE1 filtrando la información de "fertilizantes por nutriente" de </span>
+                <span class="comment"># ...acuerdo a su "uso por superficie de cultivo" determinado por el campo "element"</span>
+                BLOQUE1 <- BLOQUE1 |> <span class="function">filter(</span>element =="use_per_area_of_cropland"<span class="function">)</span>
+                
+                <span class="comment">
+                # veamos cómo se disribuye la variable "value" que en unidades 
+                # dadas por el campo "unit", en este caso kg/ha (kilogramos por hectárea)
+                # para cualquiera de los tres nutrientes posibles en cualquiera de los píses
+                # de BLOQUE1 para cualquier año contenido en este objeto
+                </span>
+                <span class="function">hist(</span>BLOQUE1$value<span class="function">)</span>
+                <hr>
+                
+                <span class="comment">
+                # analizaremos nuestra información contenida en BLOQUE1 pero
+                # esta vez agruparemos con respecto a país y nutriente (fertilizante)
+                # y generaremos media, desviación estándar y error estándar con respecto a "value"
+                # los resultados se guardarán en un nuevo objeto llamado RFN_grouped
+                </span>
+                
+                RFN_grouped <- BLOQUE1 %>% 
+                  group_by(area, item) %>%
+                  summarise(
+                    Mean = mean(value, na.rm = TRUE),
+                    SD = sd(value, na.rm = TRUE),
+                    SE = SD / sqrt(n()),
+                    .groups = "drop"
+                  ) %>% 
+                  filter(!is.na(Mean))
+                  
+               <span class="comment"> # mostremos lo que obtuvimos</span>
+               RFN_grouped
+               
+               <span class="comment"># veamos el comportamiento de fertilizantes por superficie cultivada en los 90's</span>
+               RNM_90s <- BLOQUE1 %>%
+                  filter(year %in% c(1990:1999)) %>%  # Filtra los años deseados
+                  group_by(area, item) %>%
+                  summarise(
+                    Mean = mean(value, na.rm = TRUE),
+                    SD = sd(value, na.rm = TRUE),
+                    SE = SD / sqrt(n()),
+                    .groups = "drop"
+                  ) %>% 
+                  filter(!is.na(Mean))
+                
+                <span class="comment"> # mostremos lo que obtuvimos</span>
+                RNM_90s
+                
+                <span class="comment"> # siguiente década</span>
+                RNM_00s <- BLOQUE1 %>%
+                  filter(year %in% c(2000:2009)) %>%  # Filtra los años deseados
+                  group_by(area, item) %>%
+                  summarise(
+                    Mean = mean(value, na.rm = TRUE),
+                    SD = sd(value, na.rm = TRUE),
+                    SE = SD / sqrt(n()),
+                    .groups = "drop"
+                  ) %>% 
+                  filter(!is.na(Mean))
+                
+                <span class="comment"> # mostremos lo que obtuvimos</span>
+                RNM_00s
+                
+                
+                <span class="comment"> # siguiente década</span>
+                RNM_10s <- BLOQUE1 %>%
+                  filter(year %in% c(2010:2019)) %>%  # Filtra los años deseados
+                  group_by(area, item) %>%
+                  summarise(
+                    Mean = mean(value, na.rm = TRUE),
+                    SD = sd(value, na.rm = TRUE),
+                    SE = SD / sqrt(n()),
+                    .groups = "drop"
+                  ) %>% 
+                  filter(!is.na(Mean))
+                
+                <span class="comment"> # mostremos lo que obtuvimos</span>
+                RNM_10s
+                
+                <span class="comment"> 
+                # Grafiquemos esto último
+
+                # los paquetes para graficar y exportar a html son los siguientes pero,
+                # los presento como comentarios porque ya fueron cargados desde un inicio
+
+                #library(ggplot2)
+                #library(plotly)
+                #library(htmlwidgets) 
+
+                # 1. Crear el gráfico base con ggplot2 y guardarlo en una variable estática
+                </span>
+                
+                p_gg <- ggplot(RNM_10s, aes(x = area, y = Mean, fill = item)) +
+                  geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
+                  geom_errorbar(
+                    aes(ymin = Mean - SE, ymax = Mean + SE), 
+                    position = position_dodge(width = 0.8), 
+                    width = 0.25
+                  ) +
+                  labs(
+                    title = "Uso promedio de nutrientes por país (2010-2019)",
+                    x = "País / Área",
+                    y = "Media y Error Estándar (SE)",
+                    fill = "Nutriente"
+                  ) +
+                  theme_minimal()
+                  
+                 <span class="comment"> # mostremos lo que obtuvimos</span>
+                 p_gg
+                 
+                 
+                 
+                <span class="comment"># 2. Exportar como PNG (usando el objeto estático p_gg)</span>
+                ggsave(
+                  filename = "grafico_nutrientes.png", # al no definir la ruta se guarda en la carpeta donde está este proyecto R
+                  plot = p_gg,
+                  width = 20,    # Ancho en centímetros
+                  height = 12,   # Alto en centímetros
+                  units = "cm",  # Unidad de medida
+                  dpi = 300      # Resolución en puntos por pulgada
+                )
+                
+                
+                <span class="comment"># 4. Crear la versión interactiva para HTML</span>
+                p_plotly <- ggplotly(p_gg)
+                
+                <span class="comment"> # mostremos lo que obtuvimos</span>
+                p_plotly
+                
+                <span class="comment"># 5. Guardar como archivo HTML</span>
+                saveWidget(
+                  widget = p_plotly, 
+                  file = "grafico_nutrientes_2010s.html", 
+                  selfcontained = TRUE
+                )
+            </pre>
+        </div>
+    </div>
+
+</body>
+</html>
