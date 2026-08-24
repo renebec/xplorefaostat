@@ -405,7 +405,7 @@
                RFN_grouped
                
                <span class="comment"># veamos el comportamiento de fertilizantes por superficie cultivada en los 90's</span>
-               RNM_90s <- BLOQUE1 %>%
+               RFN_90s <- BLOQUE1 %>%
                   filter(year %in% c(1990:1999)) %>%  # Filtra los años deseados
                   group_by(area, item) %>%
                   summarise(
@@ -417,10 +417,10 @@
                   filter(!is.na(Mean))
                 
                 <span class="comment"> # mostremos lo que obtuvimos</span>
-                RNM_90s
+                RFN_90s
                 
                 <span class="comment"> # siguiente década</span>
-                RNM_00s <- BLOQUE1 %>%
+                RFN_00s <- BLOQUE1 %>%
                   filter(year %in% c(2000:2009)) %>%  # Filtra los años deseados
                   group_by(area, item) %>%
                   summarise(
@@ -432,11 +432,11 @@
                   filter(!is.na(Mean))
                 
                 <span class="comment"> # mostremos lo que obtuvimos</span>
-                RNM_00s
+                RFN_00s
                 
                 
                 <span class="comment"> # siguiente década</span>
-                RNM_10s <- BLOQUE1 %>%
+                RFN_10s <- BLOQUE1 %>%
                   filter(year %in% c(2010:2019)) %>%  # Filtra los años deseados
                   group_by(area, item) %>%
                   summarise(
@@ -448,7 +448,7 @@
                   filter(!is.na(Mean))
                 
                 <span class="comment"> # mostremos lo que obtuvimos</span>
-                RNM_10s
+                RFN_10s
                 
                 <span class="comment"> 
                 # Grafiquemos esto último
@@ -463,7 +463,7 @@
                 # 1. Crear el gráfico base con ggplot2 y guardarlo en una variable estática
                 </span>
                 
-                p_gg <- ggplot(RNM_10s, aes(x = area, y = Mean, fill = item)) +
+                p_gg <- ggplot(RFN_10s, aes(x = area, y = Mean, fill = item)) +
                   geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
                   geom_errorbar(
                     aes(ymin = Mean - SE, ymax = Mean + SE), 
@@ -471,7 +471,7 @@
                     width = 0.25
                   ) +
                   labs(
-                    title = "Uso promedio de nutrientes por país (2010-2019)",
+                    title = "Uso promedio de fertilizantes por nutriente por país (2010-2019)",
                     x = "País / Área",
                     y = "Media y Error Estándar (SE)",
                     fill = "Nutriente"
