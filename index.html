@@ -7,6 +7,57 @@
     <style>
         *, *::before, *::after {
             box-sizing: border-box;
+            
+        /* Configuración para que el scroll a las secciones sea suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Estilos de la barra de navegación fija */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e3c72; /* Color de fondo acorde al tema */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000; /* Asegura que esté siempre por encima del contenido */
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            flex-wrap: wrap; /* Se adapta bien si la pantalla es pequeña */
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #9cdcfe;
+        }
+
+
         }
         body {
             margin: 0;
@@ -18,6 +69,7 @@
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 60px; /* Ajusta este valor según la altura de tu navbar */
         }
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -123,22 +175,32 @@
         <h1>Cheat Sheet R: exploring dataBases</h1>
         <text style-="color:white;">Explorando FAOSTAT: parte 1</text>
     </div>
-
+    
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#1">Block 1</a></li>
+            <li><a href="#2">Block 2</a></li>
+            <li><a href="#3">Block 3</a></li>
+            <li><a href="#4">Block 4</a></li>
+            <li><a href="#5">Block 5</a></li>
+            <li><a href="#6">Block 6</a></li>
+            <li><a href="#7">Block 7</a></li>
+        </ul>
+    </nav>
+    <hr>
+    <br id="1" >
     <div class="section-card">
         <p>
-            Este material no pretende lograr
-            un desglose completo y mucho menos un análisis de la información de FAOSTAT, sino más bien
-            busca brindar algunas herramientas operativas para fortalecer las capacidades de búsqueda y exploración
-            usando el lenguaje R y bases de datos disponibles online.
-        
-            Las líneas de código que aquí se comparten son de utilidad para explorar bases de datos en general.
-            Siéntanse libres de probar y manipular el código para construir instrucciones de exploración
-            así como otras posibles gráficas. 
+            Este material no pretende lograr un desglose completo y mucho menos un análisis de la información de 
+            FAOSTAT, sino más bien busca brindar algunas herramientas operativas para fortalecer las capacidades 
+            de búsqueda y exploración usando el lenguaje R y bases de datos disponibles online. Las líneas de código 
+            que aquí se comparten son de utilidad para explorar bases de datos en general. Siéntanse libres de 
+            probar y manipular el código para construir instrucciones de exploración así como otras posibles gráficas. 
         </p>
         
         <p>
-            Quedo a sus órdenes para cualquier duda o sugerencia con respecto a este material o
-            para otros fines relacionados con este trabajo conjunto.
+            Quedo a sus órdenes para cualquier duda o sugerencia con respecto a este material o para otros fines 
+            relacionados con este trabajo conjunto.
         </p>
         
         <div style="text-align:right;">
@@ -197,7 +259,8 @@
     
     <!-- #---------------------------------------------------------------------------- -->
     <hr>
-    <div class="section-card">
+    <br id="2">
+    <div  class="section-card">
        
         
         <h2>2: Descripción básica del paquete FAOSTAT</h2>
@@ -232,8 +295,9 @@
     </div>
     
     <hr>
+    <br id="3">
     
-    <div class="section-card">
+    <div  class="section-card">
        
         
         <h2>3: Abrir cuenta en la página de FAOSTAT</h2>
@@ -271,8 +335,9 @@
     </div>
    
    <hr>
+   <br id="4">
     
-    <div class="section-card">
+    <div id="4" class="section-card">
        
         
         <h2>4: Glosario de códigos FAOSTAT</h2>
@@ -294,8 +359,9 @@
     </div>
     
     <hr>
+    <br id="5">
     
-    <div class="section-card">
+    <div id="5" class="section-card">
        
         
         <h2>5: Explorar parte 1: explorar variables</h2>
@@ -329,13 +395,12 @@
                 unique(rfn_data$area)
         </div>
     </div>
-
-                    <hr>
-    
+    <hr>
+    <br id="6">
     <div class="section-card">
        
         
-        <h2>5: Explorar parte 2: extraer y agrupar</h2>
+        <h2>6: Explorar parte 2: extraer y agrupar</h2>
         <p>
           Explorar contenido a partir de extraer ciertos datos y de agruparlos con respecto a un conjunto de 
           categorías de interés.
@@ -473,7 +538,7 @@
                     width = 0.25
                   ) +
                   labs(
-                    title = "Uso promedio de fertilizantes por nutriente por país (2010-2019)",
+                    title = "Uso promedio de nutrientes por país (2010-2019)",
                     x = "País / Área",
                     y = "Media y Error Estándar (SE)",
                     fill = "Nutriente"
@@ -510,9 +575,10 @@
                 )
             </pre>
         </div>
+        
         <hr>
-    
-        <div class="section-card">
+        <br id="7">
+        <div  class="section-card">
            
             
             <h2>7: exportar a excel</h2>
@@ -527,17 +593,17 @@
                     <span class="code-title">export_FAOSTAT.R</span>
                 </div>
                 <pre class="code-content">
-                    <span class="comment"># Exportaremos un resultado a un archivo .xlsx para lectura en excel</span>
-                    <span class="comment"># Necesitaremos instalar en R el paquete "writexl"</span>
-                    install.packages("writexl")
+                <span class="comment"># Exportaremos un resultado a un archivo .xlsx para lectura en excel</span>
+                <span class="comment"># Necesitaremos instalar en R el paquete "writexl"</span>
+                install.packages("writexl")
                         
-                    <span class="comment"># Una vez instalado lo activamos</span>
-                    library(writexl)
+                <span class="comment"># Una vez instalado lo activamos</span>
+                library(writexl)
 
-                    <span class="comment"># Ahora retomaremos un ejemplo visto en la sección anterior:</span>
+                <span class="comment"># Ahora retomaremos un ejemplo visto en la sección anterior:</span>
                     
-                    <span class="comment"># veamos el comportamiento de fertilizantes por superficie cultivada en los 90's</span>
-                    RFN_90s <- BLOQUE1 %>%
+                <span class="comment"># veamos el comportamiento de fertilizantes por superficie cultivada en los 90's</span>
+                RFN_90s <- BLOQUE1 %>%
                           filter(year %in% c(1990:1999)) %>%  # Filtra los años deseados
                           group_by(area, item) %>%
                           summarise(
@@ -548,18 +614,17 @@
                           ) %>% 
                           filter(!is.na(Mean))
                         
-                    <span class="comment"> # mostremos lo que obtuvimos</span>
-                    RFN_90s
+                <span class="comment"> # mostremos lo que obtuvimos</span>
+                RFN_90s
                         
-                    <span class="comment"># Exportar directamente a un archivo Excel</span>
-                    write_xlsx(RFN_90s, path = "RFN_90s.xlsx")
+                <span class="comment"># Exportar directamente a un archivo Excel</span>
+                write_xlsx(RFN_90s, path = "RFN_90s.xlsx")
                         
                     
-                </pre>
+            </pre>
             </div>
         </div>
-
-                    
+        
     </div>
 
 </body>
